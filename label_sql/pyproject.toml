@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "label-sql"
+version = "0.3.0"
+description = "Local PyTorch text-to-SQL using business labels and PostgreSQL metadata"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+model = ["torch>=2.6,<3"]
+db = ["SQLAlchemy>=2.0,<3", "psycopg[binary]>=3.2,<4"]
+all = ["label-sql[model,db]"]
+
+[project.scripts]
+label-sql = "label_sql.cli:main"
+label-sql-export = "label_sql.export_schema:main"
+
+[tool.setuptools.packages.find]
+include = ["label_sql*"]

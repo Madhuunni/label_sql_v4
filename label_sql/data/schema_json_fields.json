@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "dialect": "postgresql",
+  "tables": [
+    {
+      "id": "public.employees",
+      "schema": "public",
+      "name": "employees",
+      "label": "Employees",
+      "primary_key": [
+        "employee_id"
+      ],
+      "columns": [
+        {
+          "name": "employee_id",
+          "label": "Employee ID",
+          "type": "INTEGER",
+          "nullable": false
+        },
+        {
+          "name": "full_name",
+          "label": "Employee name",
+          "aliases": [
+            "Staff name"
+          ],
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "department_id",
+          "label": "Employee department ID",
+          "type": "INTEGER",
+          "nullable": true
+        },
+        {
+          "name": "salary",
+          "label": "Salary",
+          "type": "NUMERIC(12,2)",
+          "nullable": false
+        },
+        {
+          "name": "profile",
+          "label": "Employee profile",
+          "type": "JSONB",
+          "nullable": true
+        },
+        {
+          "name": "profile_city",
+          "label": "Employee city",
+          "type": "text",
+          "json": {
+            "column": "profile",
+            "path": [
+              "address",
+              "city"
+            ]
+          }
+        },
+        {
+          "name": "profile_bonus",
+          "label": "Annual bonus",
+          "type": "numeric",
+          "json": {
+            "column": "profile",
+            "path": [
+              "bonus"
+            ]
+          }
+        },
+        {
+          "name": "profile_joined",
+          "label": "Joining date",
+          "type": "date",
+          "json": {
+            "column": "profile",
+            "path": [
+              "joined_on"
+            ]
+          }
+        },
+        {
+          "name": "profile_active",
+          "label": "Active employee",
+          "type": "boolean",
+          "json": {
+            "column": "profile",
+            "path": [
+              "active"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "public.departments",
+      "schema": "public",
+      "name": "departments",
+      "label": "Departments",
+      "primary_key": [
+        "department_id"
+      ],
+      "columns": [
+        {
+          "name": "department_id",
+          "label": "Department ID",
+          "type": "INTEGER",
+          "nullable": false
+        },
+        {
+          "name": "department_name",
+          "label": "Department name",
+          "type": "TEXT",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "id": "public.cases",
+      "schema": "public",
+      "name": "cases",
+      "label": "Cases",
+      "primary_key": [
+        "case_id"
+      ],
+      "columns": [
+        {
+          "name": "case_id",
+          "label": "Case ID",
+          "type": "INTEGER",
+          "nullable": false
+        },
+        {
+          "name": "employee_id",
+          "label": "Case employee ID",
+          "type": "INTEGER",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "label": "Case status",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "overpayment_amount",
+          "label": "Overpayment amount",
+          "type": "NUMERIC(12,2)",
+          "nullable": false
+        },
+        {
+          "name": "opened_on",
+          "label": "Opened date",
+          "type": "DATE",
+          "nullable": false
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "employees_department_fk",
+      "from_table": "public.employees",
+      "from_columns": [
+        "department_id"
+      ],
+      "to_table": "public.departments",
+      "to_columns": [
+        "department_id"
+      ]
+    },
+    {
+      "id": "cases_employee_fk",
+      "from_table": "public.cases",
+      "from_columns": [
+        "employee_id"
+      ],
+      "to_table": "public.employees",
+      "to_columns": [
+        "employee_id"
+      ]
+    }
+  ]
+}

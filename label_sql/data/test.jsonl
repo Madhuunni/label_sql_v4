@@ -1,0 +1,5 @@
+{"question": "Retrieve employee name and salary for salary exceeding 75000", "plan": {"select": [{"column": "Employee name"}, {"column": "Salary"}], "where": {"column": "Salary", "op": "gt", "value": 75000}}, "source": "hand-authored demonstration"}
+{"question": "Give department name with case ID", "plan": {"select": [{"column": "Department name"}, {"column": "Case ID"}]}, "source": "hand-authored demonstration"}
+{"question": "Retrieve total overpayment amount grouped by department name", "plan": {"select": [{"column": "Department name"}, {"column": "Overpayment amount", "aggregate": "sum"}], "group_by": ["Department name"]}, "source": "hand-authored demonstration"}
+{"question": "Return case ID when case status is Closed", "plan": {"select": [{"column": "Case ID"}], "where": {"column": "Case status", "op": "eq", "value": "Closed"}}, "source": "hand-authored demonstration"}
+{"question": "Show employee name and department name for every employee even if no department exists", "plan": {"from": "Employees", "select": [{"column": "Employee name"}, {"column": "Department name"}], "join_type": "left"}, "source": "hand-authored demonstration"}

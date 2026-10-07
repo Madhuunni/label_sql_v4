@@ -1,0 +1,13 @@
+{
+  "public.employees": {
+    "label": "Employees",
+    "columns": {
+      "employee_id": "Employee ID",
+      "full_name": {"label": "Employee name", "aliases": ["Staff name"]},
+      "department_id": "Employee department ID",
+      "salary": "Salary"
+    }
+  },
+  "public.departments": {"label": "Departments", "columns": {"department_id": "Department ID", "department_name": "Department name"}},
+  "public.cases": {"label": "Cases", "columns": {"case_id": "Case ID", "employee_id": "Case employee ID", "status": "Case status", "overpayment_amount": "Overpayment amount", "opened_on": "Opened date"}}
+}

@@ -1,0 +1,80 @@
+{
+  "public.employees": {
+    "label": "Employees",
+    "columns": {
+      "employee_id": "Employee ID",
+      "full_name": {
+        "label": "Employee name",
+        "aliases": [
+          "Staff name"
+        ]
+      },
+      "department_id": "Employee department ID",
+      "salary": "Salary"
+    },
+    "json_columns": [
+      {
+        "name": "profile_city",
+        "label": "Employee city",
+        "type": "text",
+        "json": {
+          "column": "profile",
+          "path": [
+            "address",
+            "city"
+          ]
+        }
+      },
+      {
+        "name": "profile_bonus",
+        "label": "Annual bonus",
+        "type": "numeric",
+        "json": {
+          "column": "profile",
+          "path": [
+            "bonus"
+          ]
+        }
+      },
+      {
+        "name": "profile_joined",
+        "label": "Joining date",
+        "type": "date",
+        "json": {
+          "column": "profile",
+          "path": [
+            "joined_on"
+          ]
+        }
+      },
+      {
+        "name": "profile_active",
+        "label": "Active employee",
+        "type": "boolean",
+        "json": {
+          "column": "profile",
+          "path": [
+            "active"
+          ]
+        }
+      }
+    ]
+  },
+  "public.departments": {
+    "label": "Departments",
+    "columns": {
+      "department_id": "Department ID",
+      "department_name": "Department name"
+    }
+  },
+  "public.cases": {
+    "label": "Cases",
+    "columns": {
+      "case_id": "Case ID",
+      "employee_id": "Case employee ID",
+      "status": "Case status",
+      "overpayment_amount": "Overpayment amount",
+      "opened_on": "Opened date"
+    }
+  }
+}

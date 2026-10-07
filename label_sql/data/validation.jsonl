@@ -1,0 +1,6 @@
+{"question": "Give me employee name alongside department name", "plan": {"select": [{"column": "Employee name"}, {"column": "Department name"}]}, "source": "hand-authored demonstration"}
+{"question": "List case ID and department name together", "plan": {"select": [{"column": "Case ID"}, {"column": "Department name"}]}, "source": "hand-authored demonstration"}
+{"question": "Retrieve case ID having overpayment amount greater than 7000", "plan": {"select": [{"column": "Case ID"}], "where": {"column": "Overpayment amount", "op": "gt", "value": 7000}}, "source": "hand-authored demonstration"}
+{"question": "What is the average salary per department name?", "plan": {"select": [{"column": "Department name"}, {"column": "Salary", "aggregate": "avg"}], "group_by": ["Department name"]}, "source": "hand-authored demonstration"}
+{"question": "Give the first 3 employee name values sorted alphabetically", "plan": {"select": [{"column": "Employee name"}], "order_by": [{"column": "Employee name", "direction": "asc"}], "limit": 3}, "source": "hand-authored demonstration"}
+{"question": "Count all employees", "plan": {"from": "Employees", "select": [{"column": "*", "aggregate": "count"}]}, "source": "hand-authored demonstration"}

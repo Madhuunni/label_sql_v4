@@ -1,0 +1,33 @@
+{
+  "select": [
+    {
+      "column": "Employee name"
+    },
+    {
+      "column": "Employee city"
+    },
+    {
+      "column": "Annual bonus"
+    }
+  ],
+  "where": {
+    "and": [
+      {
+        "column": "Employee city",
+        "op": "eq",
+        "value": "Chennai"
+      },
+      {
+        "column": "Annual bonus",
+        "op": "gt",
+        "value": 10000
+      }
+    ]
+  },
+  "order_by": [
+    {
+      "column": "Annual bonus",
+      "direction": "desc"
+    }
+  ]
+}

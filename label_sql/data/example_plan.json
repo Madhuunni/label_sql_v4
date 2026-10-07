@@ -1,0 +1,9 @@
+{
+  "select": [{"column": "Employee name"}, {"column": "Department name"}, {"column": "Overpayment amount"}],
+  "where": {"and": [
+    {"column": "Case status", "op": "eq", "value": "Open"},
+    {"column": "Overpayment amount", "op": "gt", "value": 5000}
+  ]},
+  "order_by": [{"column": "Overpayment amount", "direction": "desc"}],
+  "limit": 100
+}

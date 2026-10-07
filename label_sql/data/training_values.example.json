@@ -1,0 +1,7 @@
+{
+  "Employees.Employee name": ["Anita", "Ravi", "Meena"],
+  "Employees.Employee city": ["Chennai", "Salem", "Thrissur"],
+  "Employees.Salary": [30000, 60000, 90000],
+  "Employees.Annual bonus": [5000, 12500, 25000],
+  "Employees.Active employee": [true, false]
+}

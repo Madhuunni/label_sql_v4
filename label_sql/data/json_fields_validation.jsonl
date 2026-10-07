@@ -1,0 +1,3 @@
+{"question": "List employee name for employee city Salem", "plan": {"select": [{"column": "Employee name"}], "where": {"column": "Employee city", "op": "eq", "value": "Salem"}}, "source": "hand-authored demonstration"}
+{"question": "Give average annual bonus by employee city", "plan": {"select": [{"column": "Employee city"}, {"column": "Annual bonus", "aggregate": "avg"}], "group_by": ["Employee city"]}, "source": "hand-authored demonstration"}
+{"question": "List employee name where active employee equals false", "plan": {"select": [{"column": "Employee name"}], "where": {"column": "Active employee", "op": "eq", "value": false}}, "source": "hand-authored demonstration"}
